@@ -10,6 +10,7 @@ export interface IServerSideConfig {
     AzureMapSubscriptionKey: string;
     CognitiveSearchKeyField: string;
     CognitiveSearchNameField: string;
+    CognitiveSearchDocLink: string;
     CognitiveSearchGeoLocationField: string;
     CognitiveSearchOtherFields: string;
     CognitiveSearchTranscriptFields: string;

@@ -6,6 +6,7 @@ export class SearchResult {
 
     readonly key: string;
     readonly name: string;
+    readonly docLink: string;
     readonly keywordsFieldName: string;
     readonly keywords: string[] = [];
     readonly coordinates: number[];
@@ -22,6 +23,7 @@ export class SearchResult {
             .split(',')
             .map(fieldName => rawResult[fieldName])
             .join(',');
+        this.docLink =  rawResult[this._config.CognitiveSearchDocLink];   
         
         // Collecting other fields
         for (var fieldName of this._config.CognitiveSearchOtherFields.split(',').filter(f => !!f)) {

@@ -47,7 +47,10 @@ export class SearchResults extends React.Component<{ state: SearchResultsState, 
                                 </Link>
                             }
                             title={<Link variant="h6" onClick={() => state.showDetails(item)}>{item.name}</Link>}
-                        />                        
+                            action={
+                                <Link target='_blank' href={item.docLink}>Open Doc</Link> 
+                            }
+                        />
                         <CardContent>
                             {item.otherFields.map(val => { return (
                                 <Typography variant="body2" key={val}>

@@ -89,7 +89,7 @@ export class SearchResultsState extends ErrorMessageState {
         }
 
         const facetsClause = this._facetsState.facets.map(f => `facet=${f.fieldName},count:${MaxFacetValues}`).join('&');
-        const fields = `${this._config.CognitiveSearchKeyField},${this._config.CognitiveSearchNameField},${this._config.CognitiveSearchOtherFields}`;
+        const fields = `${this._config.CognitiveSearchKeyField},${this._config.CognitiveSearchNameField},${this._config.CognitiveSearchDocLink},${this._config.CognitiveSearchOtherFields}`;
 
         // Asking for @search.highlights field to extract fuzzy search keywords from. But only if CognitiveSearchTranscriptFields setting is defined.
         const highlightClause = !this._config.CognitiveSearchTranscriptFields ? `` : `&highlight=${this._config.CognitiveSearchTranscriptFields}`;

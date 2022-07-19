@@ -12,6 +12,7 @@ test('parses raw result', async () => {
         AzureMapSubscriptionKey: undefined,
         CognitiveSearchKeyField: 'myKeyField',
         CognitiveSearchNameField: 'myNameField1,myNameField2',
+        CognitiveSearchDocLink: 'link',
         CognitiveSearchGeoLocationField: 'myCoordinatesField',
         CognitiveSearchOtherFields: 'myField1,myField2,myField3,myKeywordsField',
         CognitiveSearchTranscriptFields: undefined,

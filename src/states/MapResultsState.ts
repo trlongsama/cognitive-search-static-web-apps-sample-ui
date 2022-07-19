@@ -49,7 +49,7 @@ export class MapResultsState extends ErrorMessageState {
 
     private loadMoreResults(searchUrl: string) {
 
-        const fields = `${this._config.CognitiveSearchKeyField},${this._config.CognitiveSearchNameField},${this._config.CognitiveSearchGeoLocationField}`;
+        const fields = `${this._config.CognitiveSearchKeyField},${this._config.CognitiveSearchNameField},${this._config.CognitiveSearchDocLink},${this._config.CognitiveSearchGeoLocationField}`;
         const uri = `${searchUrl}&$select=${fields}&$top=${MapPageSize}&$skip=${this._resultsLoaded}`;
 
         axios.get(uri).then(response => {

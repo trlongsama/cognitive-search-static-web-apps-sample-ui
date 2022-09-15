@@ -41,14 +41,16 @@ export class SearchResults extends React.Component<{ state: SearchResultsState, 
                 <Grid key={item.key} item sm={12} md={6}>
                     <Card raised>
                         <CardHeader
+                            style={{background:"#59b4d9"}}
                             avatar={
                                 <Link onClick={() => state.showDetails(item)}>
-                                    <Avatar><FolderIcon /></Avatar>
+                                    <Avatar style={{color: "#59b4d9", backgroundColor: "#fff"}}><FolderIcon /></Avatar>
                                 </Link>
                             }
-                            title={<Link variant="h6" onClick={() => state.showDetails(item)}>{item.name}</Link>}
+                            title={<Link variant="h6" target='_blank' href={item.docLink}>{item.name}</Link>}
+                            style={{color:"#fff", lineHeight: '20px', fontSize: '16px', fontWeight: 'bold'}}>{item.name}</Link>}
                             action={
-                                <Link target='_blank' href={item.docLink}>Open Doc</Link> 
+                                <Link href="javascript: void(0)" onClick={() => state.showDetails(item)}>Open Snapshot</Link>
                             }
                         />
                         <CardContent>
@@ -106,6 +108,7 @@ const ResultsGrid: typeof Grid = styled(Grid)({
     // required for Edge :(((
     marginLeft: '0px !important',
 })
+
 
 const TagButtonsDiv = styled.div({
     marginRight: '15px !important',

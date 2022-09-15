@@ -11,7 +11,6 @@ import { Chip, LinearProgress, Typography } from '@material-ui/core';
 
 import { MapResultsState } from '../states/MapResultsState';
 import { SimpleScaleBarControl } from './SimpleScaleBarControl';
-
 // I have no idea, why this CSS from Azure Maps needs to be imported explicitly
 import '../../node_modules/azure-maps-control/dist/atlas.css';
 import '../../node_modules/azure-maps-drawing-tools/dist/atlas.drawing.css';
@@ -133,13 +132,14 @@ export class SearchResultsMap extends React.Component<{ state: MapResultsState, 
             )}
 
             <MapDiv id="MapDiv" />
+            <img src={require('../map.jpg')} width="100%" height="" alt=""/>
         </>);
     }
 }
 
 const MapDiv = styled.div({
     background: '#bebebe',
-    height: '350px'
+    height: '0px'
 })
 
 const CountersDiv = styled.div({

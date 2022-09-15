@@ -18,7 +18,7 @@ export class SearchTextBox extends React.Component<{ state: SearchResultsState, 
         return (
             <SearchTextWrapper>
 
-                <SearchButton variant="contained" color="primary" disabled={this.props.inProgress} onClick={() => state.search()}>
+                <SearchButton variant="contained" color="primary" disabled={this.props.inProgress} onClick={() => state.search()} style = {{backgroundColor: "#1f90be"}}>
                     Search
                 </SearchButton>
                 

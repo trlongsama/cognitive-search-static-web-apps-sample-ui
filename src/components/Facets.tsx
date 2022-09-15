@@ -75,7 +75,7 @@ export class Facets extends React.Component<{ state: FacetsState, inProgress: bo
 }
 
 const FacetList: typeof List = styled(List)({
-    marginTop: '32px !important'
+    // marginTop: '32px !important'
 })
 
 const FacetListItem: typeof ListItem = styled(ListItem)({

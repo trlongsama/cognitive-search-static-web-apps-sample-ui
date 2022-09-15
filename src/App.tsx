@@ -29,14 +29,14 @@ export default class App extends React.Component<{ state: AppState }> {
 
         return (<>
 
-            <AppBar position="static" color="default">
+            <AppBar position="static" style={{backgroundColor:"#fff"}}>
                 <Toolbar>
 
                     {state.searchResultsState.isInInitialState ? (<>
 
                         <img src={logo} width="30px" alt=""/>
                         <Box width={15} />
-                        <Typography variant="h4" color="inherit">
+                        <Typography variant="h5" style={{color:"#1f90be"}} >
                             Cognitive Search Demo
                         </Typography>
                         
@@ -47,7 +47,7 @@ export default class App extends React.Component<{ state: AppState }> {
                         </Link>
                         <Box width={15} />
                         <Link href="/" color="inherit">
-                            <TitleTypography variant="h6" color="inherit">
+                            <TitleTypography variant="h6" style={{color: "#1f90be"}}>
                                     Cognitive Search Demo
                             </TitleTypography>
                         </Link>
@@ -113,20 +113,27 @@ export default class App extends React.Component<{ state: AppState }> {
 
 const BottomBar: typeof AppBar = styled(AppBar)({
     top: 'auto',
-    bottom: 0
+    bottom: 0,
 })
 
 const Sidebar = styled.div({
     width: SidebarWidth,
     float: 'left',
+    background: '#fff',
+    borderTop: '1px solid #ccc',
 })
 
 const Main = styled.div({
-    marginLeft: SidebarWidth
+    marginLeft: SidebarWidth,
+    paddingLeft: '10px',
+    paddingRight: '10px',
+    borderLeft: '1px solid #ccc',
+    background: '#E6F2F9',
+    borderTop: '1px solid #ccc',
 })
 
 const LandingDiv = styled.div({
-    margin: 150
+    margin: 150,
 })
 
 const ToolbarSearchBoxDiv = styled.div({
@@ -140,3 +147,5 @@ const TitleTypography: typeof Typography = styled(Typography)({
 const FilterDiv = styled.div({
     paddingLeft: SidebarWidth
 })
+
+

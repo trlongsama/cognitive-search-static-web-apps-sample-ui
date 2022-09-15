@@ -20,7 +20,7 @@ export class LoginIcon extends React.Component<{ state: LoginState }> {
                 onClick={evt => state.menuAnchorElement = evt.currentTarget}
             >
                 <Tooltip title={state.isLoggedInAnonymously ? "ANONYMOUS" : state.userName}>
-                    <AccountCircle />
+                    <AccountCircle style={{color: "#59b4d9"}} />
                 </Tooltip>
             </Button>
 

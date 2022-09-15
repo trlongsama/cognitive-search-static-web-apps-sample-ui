@@ -48,7 +48,6 @@ export class SearchResults extends React.Component<{ state: SearchResultsState, 
                                 </Link>
                             }
                             title={<Link variant="h6" target='_blank' href={item.docLink}>{item.name}</Link>}
-                            style={{color:"#fff", lineHeight: '20px', fontSize: '16px', fontWeight: 'bold'}}>{item.name}</Link>}
                             action={
                                 <Link href="javascript: void(0)" onClick={() => state.showDetails(item)}>Open Snapshot</Link>
                             }

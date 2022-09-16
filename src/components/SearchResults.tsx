@@ -47,9 +47,10 @@ export class SearchResults extends React.Component<{ state: SearchResultsState, 
                                     <Avatar style={{color: "#59b4d9", backgroundColor: "#fff"}}><FolderIcon /></Avatar>
                                 </Link>
                             }
-                            title={<Link variant="h6" target='_blank' href={item.docLink}>{item.name}</Link>}
+                            title={<Link variant="h6" target='_blank' href={item.docLink}
+                            style={{color:"#fff", lineHeight: '20px', fontSize: '16px', fontWeight: 'bold'}}>{item.name}</Link>}
                             action={
-                                <Link href="javascript: void(0)" onClick={() => state.showDetails(item)}>Open Snapshot</Link>
+                                <Link href="javascript: void(0)" onClick={() => state.showDetails(item)} style={{color:"#fff"}}>Open Snapshot</Link>
                             }
                         />
                         <CardContent>

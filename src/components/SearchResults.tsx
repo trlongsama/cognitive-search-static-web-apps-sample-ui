@@ -34,7 +34,6 @@ export class SearchResults extends React.Component<{ state: SearchResultsState, 
     render(): JSX.Element {
 
         const state = this.props.state;
-
         var cards = state.searchResults.map(item => {
 
             return (
@@ -54,14 +53,49 @@ export class SearchResults extends React.Component<{ state: SearchResultsState, 
                             }
                         />
                         <CardContent>
-                            {item.otherFields.map(val => { return (
-                                <Typography variant="body2" key={val}>
-                                    {val}
-                                </Typography>
-                            )})}
-                        </CardContent>
+                            <div style={{display: "flex", justifyContent: "space-between"}}>
+                                <h4 style={{margin: "0px"}}>{item.otherFields[0]}</h4>
+                                <Link href={item.otherFields[2]} target='_blank'>County Info</Link>
+                            </div>
+                            <Typography variant="body2">{item.otherFields[1]}</Typography>
+                            <div className="highlightedcontent">
+                                {item.highlightedContent?.map((val, index) => { return (
+                                    (() => {
+                                        if(!item.seeMore) {
+                                            if(index < 2) {
+                                                return (
+                                                    <p style={{wordBreak: "break-word"}} dangerouslySetInnerHTML= {{__html: val}} key={val}>
+                                                    </p>
+                                                )
+                                            }
+                                        } else {
+                                            return (
+                                                <p style={{wordBreak: "break-word"}} dangerouslySetInnerHTML= {{__html: val}} key={val}>
+                                                </p>
+                                            )
+                                        }
+                                    })()                                    
+                                )})}
 
-                        <TagButtonsDiv>
+                                {(() => {
+                                    if(item.highlightedContent?.length > 2) {
+                                        if(item.seeMore) {
+                                            return (                                            
+                                                <span style={{cursor:"pointer", color: "#3f51b5"}} onClick = {() => state.toggleExpand(item.key)} >See Less</span>
+                                            )
+                                        } else {
+                                            return (                                            
+                                                <span style={{cursor:"pointer", color: "#3f51b5"}} onClick = {() => state.toggleExpand(item.key)} >See more</span>
+                                            )
+                                        }
+                                        
+                                    }
+                                })()}
+                            </div>
+                            <ReleaseDateTypography variant="body2">Release Date: {item.otherFields[3]}</ReleaseDateTypography>
+                        </CardContent>
+                        {
+                            item.keywords?.length > 0 ? <TagButtonsDiv>
                             {item.keywords.map(kw => { return (
                                 <TagChip
                                     key={kw}
@@ -71,7 +105,8 @@ export class SearchResults extends React.Component<{ state: SearchResultsState, 
                                     disabled={this.props.inProgress}
                                 />
                             ); })}
-                        </TagButtonsDiv>
+                        </TagButtonsDiv> : ''
+                        }                               
 
                     </Card>
                 </Grid>
@@ -123,6 +158,12 @@ const CountersTypography: typeof Typography = styled(Typography)({
     float: 'right',
     width: 'auto',
     margin: '10px !important'
+})
+const ReleaseDateTypography: typeof Typography = styled(Typography)({
+    marginTop: "10px", 
+    fontWeight: "bold", 
+    color: "#0a5c90", 
+    fontSize: "14px"
 })
 
 const TopLinearProgress: typeof LinearProgress = styled(LinearProgress)({

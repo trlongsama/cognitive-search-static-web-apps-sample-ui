@@ -249,4 +249,14 @@ export class SearchResultsState extends ErrorMessageState {
             this._suggestions = response.data.value.map(v => v.queryPlusText);
         });
     }
+
+    toggleExpand(key){
+        let result = [...this.searchResults];
+        const results =  result.find(f => f.key === key);
+        results.seeMore = !results.seeMore;
+        this.searchResults = [];
+        if (results) {
+            this.searchResults.push(...result);
+        }
+    }
 }

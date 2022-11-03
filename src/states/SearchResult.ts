@@ -12,13 +12,15 @@ export class SearchResult {
     readonly coordinates: number[];
     readonly otherFields: string[] = [];
     readonly highlightedWords: string[] = [];
+    readonly highlightedContent: string[] = [];
+    seeMore: boolean = false;
     
     constructor(rawResult: any, private _config: IServerSideConfig) {
 
         this.key = rawResult[this._config.CognitiveSearchKeyField];
         this.coordinates = this.extractCoordinates(rawResult);
         this.highlightedWords = this.extractHighlightedWords(rawResult);
-
+        this.highlightedContent = rawResult['@search.highlights']?.content;
         this.name = this._config.CognitiveSearchNameField
             .split(',')
             .map(fieldName => rawResult[fieldName])
